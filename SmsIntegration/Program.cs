@@ -9,7 +9,7 @@ class Program
     static void Main(string[] args)
     {
         var baseURl = "https://89qzx3.api.infobip.com/sms/2/text/advanced";
-        //string API_KEY = "aa750532ddb18d9a304f89fe92144ca9-85459541-11e3-428b-8019-9455f9cd23a9";
+       
        
         var client = new RestClient(baseURl);        
         var request = new RestRequest();
@@ -18,7 +18,7 @@ class Program
 
         List<Destination> destinations = new List<Destination>();
         Destination contact = new Destination();
-        contact.to = "254708733460";
+        contact.to = "25470000000000";
         destinations.Add(contact);
         List<Messages> messages = new List<Messages>();
         Messages message = new Messages();
@@ -30,7 +30,7 @@ class Program
         sms.messages = messages;
         var result = JsonConvert.SerializeObject(sms);
 
-        request.AddHeader("Authorization", "App aa750532ddb18d9a304f89fe92144ca9-85459541-11e3-428b-8019-9455f9cd23a9");
+        request.AddHeader("Authorization", "App api_key");
         request.AddHeader("Content-Type", "application/json");
         request.AddHeader("Accept", "application/json");
         request.AddParameter("application/json", sms, ParameterType.RequestBody);
